@@ -52,7 +52,7 @@ def auth_into_eth_address
      p verified_public_address
 
 
-    crypto_punk_id_at_key = 1
+    
 
     if !verified_public_address.start_with?("0x")
       verified_public_address = "0x" + verified_public_address
