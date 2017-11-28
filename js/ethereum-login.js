@@ -1,4 +1,12 @@
+/*
+without nodejs build me with:
+browserify ethereum-login.js -o ethereum-login-bundle.js
 
+
+*/
+
+
+var ethUtil =  require('ethereumjs-util');
 
 function renderError(message)
 {
@@ -20,20 +28,18 @@ if (typeof web3 !== 'undefined') {
 
 
 
+              jQuery(".eth-btn").on('click', function(event) {
 
+                  renderHelp("Starting personal sign... ")
 
-      jQuery(".eth-button").on('click', function(event) {
+                  handlePersonalSignButtonClick(web3,ethUtil,function(response){
+                      renderHelp("PERSONAL SIGN WORKED ")
 
-          renderHelp("Starting personal sign... ")
+                  })
 
-          handlePersonalSignButtonClick(web3,function(response){
-              renderHelp("PERSONAL SIGN WORKED ")
+                  //send the expected public key, challenge, and signature to the server via Ajax to sign in
 
-          })
-
-          //send the expected public key, challenge, and signature to the server via Ajax to sign in
-
-       });
+               });
 
 
   } else {
@@ -49,7 +55,7 @@ if (typeof web3 !== 'undefined') {
 });
 
 
-function handlePersonalSignButtonClick(web3,callback)
+function handlePersonalSignButtonClick(web3,ethUtil,callback)
 {
 
   event.preventDefault();
@@ -75,14 +81,18 @@ function handlePersonalSignButtonClick(web3,callback)
          if (err) return console.error(err)
          console.log('PERSONAL SIGNED:' + result)
 
-          var success = checkLoginSignature(result,msg_hash)
+        checkLoginSignature(result,msg_hash,ethUtil,function(response){
 
-          if(success)
-          {
-          callback('success');
-          }else {
-            console.log(err)
-          }
+            if(response == 'success')
+            {
+            callback('success');
+            }else {
+              console.log(err)
+            }
+
+          })
+
+
 
        });
       }
@@ -92,7 +102,7 @@ function handlePersonalSignButtonClick(web3,callback)
 
 
 
-function checkLoginSignature(_signature_response_hex,_challenge_digest_hash,callback)
+function checkLoginSignature(_signature_response_hex,_challenge_digest_hash,ethUtil,callback)
 {
 
   if(typeof _challenge_digest_hash != 'buffer')
@@ -144,15 +154,17 @@ function checkLoginSignature(_signature_response_hex,_challenge_digest_hash,call
        signature_s: vrs_data_integer.s,
 
      },
-   }).success(function(result) {
-      console.log(result)
+     success: function (result) {
+       console.log(result)
 
-      console.log("authed in properly ");
-          callback('success')
-    }).done(function() {
-      console.log("completed ");
-
-    });
+       console.log("authed in properly ");
+           callback('success')
+     },
+     done: function (result) {
+       console.log("authed in properly clientside, please implement server side check ");
+       callback('success')
+     }
+   })
 
 
 
