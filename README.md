@@ -1,7 +1,12 @@
 
 # ethereum-login
 
+## Foreward
+Typically, websites and apps use email addresses as digital identifiers in apps.  These are paired with passwords or with OAuth to validate ownership.  This creates many headaches including password management (bad for users and for developers, great for hackers) and including reliance on third party servers.  [I dislike building a password management system for every app.  I dislike remembering all of my passwords and fearing that they will be broken.]
 
+However, it is now easy to ditch emails and passwords out and instead provide a more elegant, safer, and simpler option.  Many more online users are creating Ethereum accounts.  These accounts can 'securely sign' in order to prove their identity.  This can be used as the basis for an authentication system for websites; one that doesn't even need to talk to the blockchain but can rely simply on mathematics.
+
+## Intro
 Allow users to authenticate themselves to your websites and apps  without relying on passwords and without relying a centralized corporation such as Google, Twitter or Facebook.  Instead, users can use an Ethereum account that they control.  
   
 Those users will need to use a plugin such as Metamask or a browser such as Mist in order to authenticate themselves in this way.  Any web3 enabled browser will work.  There are many advantages including:
