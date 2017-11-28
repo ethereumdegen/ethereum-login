@@ -22,7 +22,7 @@ http://starflask.com/ethereum-login/index.html
 
 # Fundamentals
 
-This methodology uses a button to call the web3 'personal sign' function.  This sends a challenge to the browser (metamask/mist) and a popup will appear for the user which they can choose to Accept/Sign.  Their response can be checked against your challenge in order to validate that the user must control the private key for their given public address.  This validated public address can be used as a persistent identity for that user across your application. 
+This methodology uses a button to call the web3 'personal sign' function.  This sends a challenge to the browser (metamask/mist) and a popup will appear for the user which they can choose to Accept/Sign.  Their response can be checked against your challenge in order to validate that the user controls the private key for their given public address.  This validated public address can be used as a persistent identity for that user across your application. 
 
 
 Based off of this: 
