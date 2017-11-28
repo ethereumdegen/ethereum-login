@@ -1,0 +1,23 @@
+{
+  "name": "ethereum-login",
+  "version": "0.0.2",
+  "description": "A simple front end and back end for web3 oauth ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/admazzola/ethereum-login.git"
+  },
+  "keywords": [
+    "ethereum",
+    "login"
+  ],
+  "author": "admazzola",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/admazzola/ethereum-login/issues"
+  },
+  "homepage": "https://github.com/admazzola/ethereum-login#readme"
+}
