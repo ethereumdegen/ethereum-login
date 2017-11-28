@@ -2,7 +2,7 @@
 # ethereum-login
 
 ## Foreward
-Typically, websites and apps use email addresses as digital identifiers in apps.  These are paired with passwords or with OAuth to validate ownership.  This creates many headaches including password management (bad for users and for developers, great for hackers) and including reliance on third party servers.  [I dislike building a password management system for every app.  I dislike remembering all of my passwords and fearing that they will be broken.]
+Typically, websites and apps use email addresses as digital identifiers in apps.  These are paired with passwords or with OAuth to validate ownership.  This creates many headaches including password management (bad for users and for developers, great for hackers) and including reliance on third party servers.  
 
 However, it is now easy to ditch emails and passwords out and instead provide a more elegant, safer, and simpler option.  Many more online users are creating Ethereum accounts.  These accounts can 'securely sign' in order to prove their identity.  This can be used as the basis for an authentication system for websites; one that doesn't even need to talk to the blockchain but can rely simply on mathematics.
 
