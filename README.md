@@ -1,8 +1,6 @@
 
 # ethereum-login
 
-This is compatible with metamask 3.12.0
-
 
 Allow users to authenticate themselves to your websites and apps  without relying on a centralized corporation such as Google, Twitter or Facebook.  Instead, users can use an Ethereum account that they control.  
 
@@ -30,5 +28,7 @@ This methodology uses a button to call the web3 'personal sign' function.  This 
 Based off of this: 
 https://medium.com/metamask/the-new-secure-way-to-sign-data-in-your-browser-6af9dd2a1527
 
+
+This is compatible with metamask 3.12.0
 
 (This project is not directly affiliated with the ethereum foundation, it is open source.)
