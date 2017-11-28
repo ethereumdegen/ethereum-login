@@ -6525,7 +6525,14 @@ if (typeof web3 !== 'undefined') {
                   renderHelp("Starting personal sign... ")
 
                   handlePersonalSignButtonClick(web3,ethUtil,function(response){
-                      renderHelp("PERSONAL SIGN WORKED ")
+
+                      if(response == 'success')
+                      {
+                         renderHelp('client and server validation worked')
+                      }else {
+                         renderHelp('client validation worked, you need to implement serverside validation')
+                      }
+
 
                   })
 
@@ -6573,14 +6580,9 @@ function handlePersonalSignButtonClick(web3,ethUtil,callback)
          if (err) return console.error(err)
          console.log('PERSONAL SIGNED:' + result)
 
-        checkLoginSignature(result,msg_hash,ethUtil,function(response){
+          checkLoginSignature(result,msg_hash,ethUtil,function(response){
 
-            if(response == 'success')
-            {
-            callback('success');
-            }else {
-              console.log(err)
-            }
+              callback(response);
 
           })
 
@@ -6650,11 +6652,11 @@ function checkLoginSignature(_signature_response_hex,_challenge_digest_hash,ethU
        console.log(result)
 
        console.log("authed in properly ");
-           callback('success')
+         callback('success')
      },
-     done: function (result) {
-       console.log("authed in properly clientside, please implement server side check ");
-       callback('success')
+     error: function (result) {
+        console.log("authed in properly clientside, please implement server side check ");
+        callback('error')
      }
    })
 
