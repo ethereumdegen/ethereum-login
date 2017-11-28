@@ -1,6 +1,6 @@
 {
   "name": "ethereum-login",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A simple front end and back end for web3 oauth ",
   "main": "index.js",
   "scripts": {
