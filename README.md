@@ -5,6 +5,9 @@
 Allow users to authenticate themselves to your websites and apps  without relying on a centralized corporation such as Google, Twitter or Facebook.  Instead, users can use an Ethereum account that they control.  
 
 
+### Note: This has not undergone security analysis yet.  The web3 protocol is also still under development. 
+
+
 
 Those users will need to use a plugin such as Metamask or a browser such as Mist in order to authenticate themselves in this way.  However, there are many advantages including:
 
