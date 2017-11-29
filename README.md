@@ -24,16 +24,24 @@ https://codepen.io/admazzola/pen/LOgpOV
 Sample implementation: (client side only)
 http://starflask.com/ethereum-login/index.html
 
-# Fundamentals
+## Fundamentals
 
 This methodology uses a button to call the web3 'personal sign' function.  This sends a challenge to the browser (metamask/mist) and a popup will appear for the user which they can choose to Accept/Sign.  Their response can be checked against your challenge in order to validate that the user controls the private key for their given public address.  This validated public address can be used as a persistent identity for that user across your application. 
 
-# Why use Ethereum for Authentication
+## Why use Ethereum for Authentication
+
 1. Passwords are a major security flaw of the modern web.   Most website developers do not implement password storage properly i.e. do not salt or encrypt passwords which leaves treasure troves of plaintext passwords for hackers.   
 2. By using central authorities for OAuth, you and your users and freely sacrificing all privacy and usage rights to that authority.  This is a decentralized solution so the user remains in control of their own data (which sites they have logged in to.) 
 3. This does not require running an Ethereum node on your server, but you can.  This only uses offline ECDSA mathematics to validate that the client controls the private key to a given public address.  The private key is never revealed by the client and should never be revealed under any circumstance.    
 
-Based off of this: 
+## Backend validation
+
+Once the metamask response is returned, it should be send to the backend of the server (this example uses AJAX for this) so that the server can extract the validated public key, sign in the user, and create a new record for the user if one does not already exist.  Some example backend controller methods will be provided here:
+
+https://github.com/admazzola/ethereum-login/tree/master/server-examples
+
+
+This whole implementation is based off of this metamask technology: 
 https://medium.com/metamask/the-new-secure-way-to-sign-data-in-your-browser-6af9dd2a1527
 
 
