@@ -40,6 +40,7 @@ Once the metamask response is returned, it should be send to the backend of the 
 
 https://github.com/admazzola/ethereum-login/tree/master/server-examples
 
+----------
 
 This whole implementation is based off of this metamask technology: 
 https://medium.com/metamask/the-new-secure-way-to-sign-data-in-your-browser-6af9dd2a1527
