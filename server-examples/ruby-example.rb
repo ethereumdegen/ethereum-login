@@ -45,7 +45,11 @@ def auth_into_eth_address
     public_key_hex =  Ethereum::Utils.encode_hex( public_key_raw )
 
     public_key = Ethereum::PublicKey.new(  public_key_hex)
-
+    
+  
+    # it is important to note here that because we 'recovered' this public address from the metamask challenge response, 
+    #then that proves to us that the client must know the private key that corresponds to this public address.  
+    #That is the basis for this entire authentication method and that is why it is called 'verified_public_address' in this instance
     verified_public_address = Ethereum::Utils.encode_hex( public_key.to_address )
 
      p 'authing in with pub addr '
