@@ -1,5 +1,5 @@
 #This is a sample method that would be used in a Ruby on Rails Controller.  
-#This assumes that you have a basic understanding of Ruby on Rails. If you have implemented Devise or Sorcery this is similar but easier overall.  
+#This assumes that you have a basic understanding of Ruby on Rails. If you have implemented Devise or Sorcery this is similar.
 
 
 #gems that are used: (add to GEMFILE)
