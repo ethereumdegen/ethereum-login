@@ -63,7 +63,7 @@ def auth_into_eth_address
      end 
       
     
-    #One the user is logged in you can either redirect to another page 
+    #Once the user is logged in you can either redirect to another page 
      #alert[:flash] = "Logged in!"
      #redirect_to :root_path
   
