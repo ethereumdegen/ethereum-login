@@ -1,4 +1,8 @@
-  require 'rlp'
+#This is a sample method that would be used in a Ruby on Rails Controller.  
+#This assumes that you have a basic understanding of Ruby on Rails. If you have implemented Devise or Sorcery this is similar but easier overall.  
+
+
+require 'rlp'
 require 'secp256k1'
 #require 'ethereum'
 require 'ethereum/constant'
@@ -21,7 +25,8 @@ include Ethereum::Secp256k1
 
 #http://www.rubydoc.info/gems/ruby-ethereum/0.9.1/Ethereum/Utils#decode_hex-instance_method
 
-#reads the AJAX request from the javascript sample and validate that the client's public key matched the public key that is recovered from their response to your challenge 
+
+#This method reads the AJAX request from the javascript sample and validate that the client's public key matched the public key that is recovered from their response to your challenge 
 
 #THIS HAS NOT BEEN TESTED AND IS NOT 100% SECURE
 
