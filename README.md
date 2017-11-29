@@ -42,7 +42,7 @@ https://github.com/admazzola/ethereum-login/tree/master/server-examples
 
 ## Security considerations
 
-In an ideal scenario, the challenge message that is sent to metamask (the text that is being signed) shall be random and it shall be deterministic or pre-determined such that the server will already have that message for the purposes of public address recovery and validation.  The client should not be trusted to tell us what that challenge message was.  This is to avoid a replay attack in which a different website asks the same user to sign the same message; thereby allowing the owner of the website to log in as that user on your website.  Finally, all traffic should be encrypted using standard web encryption with HTTPS to prevent man-in-the-middle attacks.  
+In an ideal scenario, the challenge message that is sent to metamask (the text that is being signed) shall be random and it shall be deterministic or pre-determined such that the server will already know that message for the purposes of public address recovery and validation.  The client should not be trusted to tell the server what that challenge message was, only to provide the server with the signature.  This is to avoid a replay attack in which a different website asks the same user to sign the same message; thereby allowing the owner of the website to log in as that user on your website.  Finally, all traffic should be encrypted using standard web encryption with HTTPS to prevent man-in-the-middle attacks.  
 
 ----------
 
