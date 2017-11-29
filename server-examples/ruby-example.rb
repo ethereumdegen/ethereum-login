@@ -77,7 +77,7 @@ def auth_into_eth_address
 
   end
 
-
+#Accepts the signature output from Metamask's personal_sign and returns the verified public address extracted from the signature.  This is the public address of the Ethereum account that signed the challenge.
 def recover_verified_public_address_from_signature(web3_signature_v,web3_signature_r,web3_signature_s,challenge_hash)
     #Use the data to recover the public key and then the public address
     vrs_data = [web3_signature_v,web3_signature_r,web3_signature_s]
