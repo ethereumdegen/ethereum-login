@@ -58,13 +58,26 @@ def auth_into_eth_address
       verified_public_address = "0x" + verified_public_address
     end
 
-    #login
+    #log the user into a session
     session[:current_public_address] = verified_public_address
-
-
-    #alert[:flash] = "Logged in to your Punk!"
-    #redirect_to :root_path
-
+    
+  
+    # optionally log the user into a database record (similar to devise,sorcery etc)
+    #existing_user = User.find_by(public_address: verified_public_address)
+  
+    #if(existing_user != nil)
+    #  session[:user_id] = existing_user.id
+    #else 
+    #  created_user = User.create(public_address: verified_public_address)
+    #  session[:user_id] = created_user.id
+    #end 
+      
+    
+    #One the user is logged in you can either redirect to another page 
+     #alert[:flash] = "Logged in!"
+     #redirect_to :root_path
+  
+    #Or you can simply return JSON to the AJAX request and have that client-side function perform a redirect 
     respond_to do |format|
 
       #format.html # show.html.erb
