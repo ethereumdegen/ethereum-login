@@ -43,32 +43,12 @@ def auth_into_eth_address
     web3_signature_v = params[:signature_v].to_i(16)
     web3_signature_r = params[:signature_r].to_i(16)
     web3_signature_s = params[:signature_s].to_i(16)
-    challenge_hash = Ethereum::Utils.decode_hex(params[:challenge] )
-    
-    #Use the data to recover the public key and then the public address
-    vrs_data = [web3_signature_v,web3_signature_r,web3_signature_s]
-
-    public_key_raw =  Ethereum::Secp256k1.recover_pubkey(challenge_hash, vrs_data , compressed: false)
-
-    public_key_hex =  Ethereum::Utils.encode_hex( public_key_raw )
-
-    public_key = Ethereum::PublicKey.new(  public_key_hex)
-    
+    challenge_hash = Ethereum::Utils.decode_hex(params[:challenge] ) 
   
-    # it is important to note here that because we 'recovered' this public address from the metamask challenge response, 
-    #then that proves to us that the client must know the private key that corresponds to this public address.  
-    #That is the basis for this entire authentication method and that is why it is called 'verified_public_address' in this instance
-    verified_public_address = Ethereum::Utils.encode_hex( public_key.to_address )
+    verified_public_address = recover_verified_public_address_from_signature(web3_signature_v,web3_signature_r,web3_signature_s,challenge_hash)
 
      p 'authing in with pub addr '
-     p verified_public_address
-
-
-    
-
-    if !verified_public_address.start_with?("0x")
-      verified_public_address = "0x" + verified_public_address
-    end
+     p verified_public_address    
 
     #optionally log the user into a session
     #session[:current_public_address] = verified_public_address
@@ -100,9 +80,32 @@ def auth_into_eth_address
   end
 
 
+def recover_verified_public_address_from_signature(web3_signature_v,web3_signature_r,web3_signature_s,challenge_hash)
+    #Use the data to recover the public key and then the public address
+    vrs_data = [web3_signature_v,web3_signature_r,web3_signature_s]
+
+    public_key_raw =  Ethereum::Secp256k1.recover_pubkey(challenge_hash, vrs_data , compressed: false)
+
+    public_key_hex =  Ethereum::Utils.encode_hex( public_key_raw )
+
+    public_key = Ethereum::PublicKey.new(  public_key_hex)
+     
+    # it is important to note here that because we 'recovered' this public address from the metamask challenge response, 
+    #then that proves to us that the client must know the private key that corresponds to this public address.  
+    #That is the basis for this entire authentication method and that is why it is called 'verified_public_address' in this instance
+    verified_public_address = Ethereum::Utils.encode_hex( public_key.to_address )
+    
+     if !verified_public_address.start_with?("0x")
+      verified_public_address = "0x" + verified_public_address
+    end
+    
+    return verified_public_address
+end 
 
 
-#here is an optional helper method similar to the one that devise provides
+
+#This is an optional helper method similar to the one that devise provides. 
+#Use this throughout the app to check if the user is logged in and to load/save data to/from their user record 
 def current_user 
   if session[:user_id]
     current_user = User.find_by(id: session[:user_id])
