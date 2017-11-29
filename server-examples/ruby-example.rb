@@ -32,20 +32,19 @@ include Ethereum::Secp256k1
 
 
 def auth_into_eth_address
-
+    
+    #read the input data provided by the AJAX method from ethereum-login.js 
+    #this data ultimately came from the client's metamask and represents their personal_sign output 
     web3_signature = params[:signature]
     web3_signature_v = params[:signature_v].to_i(16)
     web3_signature_r = params[:signature_r].to_i(16)
     web3_signature_s = params[:signature_s].to_i(16)
-
-
     challenge_hash = Ethereum::Utils.decode_hex(params[:challenge] )
-
+    
+    #Use the data to recover the public key and then the public address
     vrs_data = [web3_signature_v,web3_signature_r,web3_signature_s]
 
-
     public_key_raw =  Ethereum::Secp256k1.recover_pubkey(challenge_hash, vrs_data , compressed: false)
-
 
     public_key_hex =  Ethereum::Utils.encode_hex( public_key_raw )
 
