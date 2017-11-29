@@ -30,9 +30,7 @@ include Ethereum::Secp256k1
 #http://www.rubydoc.info/gems/ruby-ethereum/0.9.1/Ethereum/Utils#decode_hex-instance_method
 
 
-#This method reads the AJAX request from the javascript sample and validate that the client's public key matched the public key that is recovered from their response to your challenge 
-
-#THIS HAS NOT BEEN TESTED AND IS NOT 100% SECURE
+#Disclaimer: This has not been tested for security. 
 
 
 def auth_into_eth_address
