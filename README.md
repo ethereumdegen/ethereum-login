@@ -36,7 +36,7 @@ This methodology uses a button to call the web3 'personal sign' function.  This 
 
 ## Backend validation
 
-Once the metamask response is returned, it should be send to the backend of the server (this example uses AJAX for this) so that the server can extract the validated public address, sign in the user, and create a new record for the user if one does not already exist.  Some example backend controller methods will be provided here:
+Once the metamask response signature is returned, it should be sent to the server backend (this example uses AJAX for this) so that the server can extract the validated public address from the signature, log in the user, and create a new record for the user in the app's database if one does not already exist.  Some example backend controller methods will be provided here:
 
 https://github.com/admazzola/ethereum-login/tree/master/server-examples
 
