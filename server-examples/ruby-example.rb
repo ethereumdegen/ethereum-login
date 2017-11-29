@@ -1,10 +1,13 @@
 #This is a sample method that would be used in a Ruby on Rails Controller.  
 #This assumes that you have a basic understanding of Ruby on Rails. If you have implemented Devise or Sorcery this is similar.
 
+#Disclaimer: This has not been tested for security. 
 
 #gems that are used: (add to GEMFILE)
 # gem 'ruby-ethereum'
 # gem 'ethereum.rb'
+
+
 
 require 'rlp'
 require 'secp256k1'
@@ -27,10 +30,7 @@ include Ethereum::Utils
 include Ethereum::Secp256k1
 
 
-#http://www.rubydoc.info/gems/ruby-ethereum/0.9.1/Ethereum/Utils#decode_hex-instance_method
 
-
-#Disclaimer: This has not been tested for security. 
 
 
 def auth_into_eth_address
