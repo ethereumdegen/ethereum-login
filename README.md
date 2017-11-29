@@ -51,3 +51,7 @@ This is compatible with metamask 3.12.0
 (This project is not directly affiliated with the ethereum foundation, it is open source.)
 
 #### Note: This has not undergone security analysis yet.  The web3 protocol is also still under development. 
+
+
+## Other literature/similar projects
+https://github.com/metamask/eth-sig-util
