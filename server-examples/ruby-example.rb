@@ -2,6 +2,10 @@
 #This assumes that you have a basic understanding of Ruby on Rails. If you have implemented Devise or Sorcery this is similar but easier overall.  
 
 
+#gems that are used: (add to GEMFILE)
+# gem 'ruby-ethereum'
+# gem 'ethereum.rb'
+
 require 'rlp'
 require 'secp256k1'
 #require 'ethereum'
